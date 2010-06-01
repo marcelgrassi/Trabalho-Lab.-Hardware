@@ -7,22 +7,18 @@ end entity;
 architecture arq_clock of clock_generator is
 begin
 
-	process(Clk)
+	process
 	begin
 		
-		Clk <= (not Clk) after 1 ns;
+		Clk <= '0' after 1 ns;
+		Clk <= '1' after 1 ns;
 		
 		if(Halt = '1')
 			Clk <= (not Clk) after 1 ns;
 			Clk <= (not Clk) after 1 ns;
 			wait;
-		else
-			Clk <= (not Clk) after 1 ns;	
-			
 		end if;	
-		
 	
 	end process;
-
 
 end architecture;
