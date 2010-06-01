@@ -10,10 +10,14 @@ begin
 	process(Clk)
 	begin
 		
-		Clk <= not Clk after 1 ns;
+		Clk <= (not Clk) after 1 ns;
 		
 		if(Halt = '1')
-			Clk <= not Clk wait 1 ns;
+			Clk <= (not Clk) after 1 ns;
+			Clk <= (not Clk) after 1 ns;
+			wait;
+		else
+			Clk <= (not Clk) after 1 ns;	
 			
 		end if;	
 		
